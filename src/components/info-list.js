@@ -6,9 +6,7 @@ const InfoList = props => {
     if(props.output_number !== null) {
         info_list = <div className="info-list-inner">
                         <div className="inner-list">
-                            <div className="win-lose styled-number">
-                                <div>Number <span data-id={props.output_number}>{props.output_number}</span>{props.win_lose} <i className={"fas fa-" + props.thumbs}></i></div>
-                                
+                            <div className="win-lose styled-number">                                
                                 {
                                     props.winning_with.length > 0 ?
                                     <div className="winning-with">
@@ -26,10 +24,6 @@ const InfoList = props => {
                                     :
                                     <div className="info-before-spin">Place your bets please! <small>You can place your bets until <i><b>No more bets</b></i> is called!</small></div>
                                 }
-
-                                
-                                
-                                
                             </div>
                             
                             <p className="text-center styled-number">Number <span data-id={props.output_number}>{props.output_number}</span> is:</p>
@@ -64,7 +58,7 @@ const InfoList = props => {
 
     return (
         <div className={`info-list ${props.info_list ? 'active' : ''}`}>
-            <i className={`close-this fas fa-chevron-${props.info_list ? 'right' : 'left'}`} onClick={(e) => props.closeList()}></i>
+            <img src={require(`../assets/images/arrow-${props.info_list ? 'right' : 'left'}.png`)} alt="Open and Close arrow" className="close-this" onClick={(e) => props.closeList()}/>
             {info_list}                        
         </div>
     )
@@ -76,7 +70,6 @@ function mapStateToProps(state) {
         output_number: state.output_number,
         last_numbers: state.last_numbers,
         win_lose: state.win_lose,
-        thumbs: state.thumbs,
         winning_with: state.winning_with,
         text_even_odd: state.text_even_odd,
         text_number_color: state.text_number_color,

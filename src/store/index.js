@@ -20,7 +20,7 @@ const reducer = (state = initialState, action) => {
         return number.map(value => value.checked ? {...value, checked: false} : value)
     }
 
-    let _output_number = Math.floor((Math.random() * 6) + 0);
+    let _output_number = Math.floor((Math.random() * 36) + 0);
     const getGameResult = (value) => {
         return parseInt(value.filter(number => number === _output_number))
     }
@@ -109,11 +109,7 @@ const reducer = (state = initialState, action) => {
             let addDolly = document.getElementById(_output_number);
             addDolly.className += ' winner-number';
 
-            let _win_lose_with_outside_bets = getGameResult(state.outside_bets);
             let _win_lose_with_number_bets = getGameResult(state.number_checked);
-
-            let _win_lose = (_output_number === _win_lose_with_outside_bets || _output_number === _win_lose_with_number_bets) ? 'Winning' : 'Losing';
-            let _thumbs = (_output_number === _win_lose_with_outside_bets || _output_number === _win_lose_with_number_bets) ? 'thumbs-up' : 'thumbs-down';
 
             winningWithOutsideBets(state.low_numbers);
             winningWithOutsideBets(state.even_numbers);
@@ -147,8 +143,6 @@ const reducer = (state = initialState, action) => {
                     rotate_ball: 'hide',
                     button_text: 'Spin it!',
                     remove_bet_text: 'Remove bets',
-                    win_lose: _win_lose_with_outside_bets || _win_lose_with_number_bets ? _win_lose : '', //if bet placed
-                    thumbs: _win_lose_with_outside_bets || _win_lose_with_number_bets ? _thumbs : '', //if bet placed
                     winning_with: _winning_with,
                     disabled_btn: '',
                     disabled_spin: '',

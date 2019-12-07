@@ -15,8 +15,6 @@ const initialState = {
     button_text: 'Spin it!',
     remove_bet_text: 'Remove Bets',
     remove_bet_btn: false,
-    win_lose: '',
-    thumbs: '',
     winning_with: [],
     disabled_btn: '',
     disabled_spin: '',

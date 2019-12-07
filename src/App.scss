@@ -1,3 +1,6 @@
+$tableColor1: #2f2f2f;
+$tableColor2: #3f3f3f;
+
 .roulette-game {
     margin: auto;
 
@@ -30,8 +33,8 @@
     .btn-primary {
         width: 49%;
         margin: 2rem 0 0 0;
-        background-color: #593222;
-        border-color: #593222;
+        background-color: $tableColor1;
+        border-color: $tableColor1;
 
         &:hover,
         &:focus,
@@ -39,8 +42,8 @@
         &:disabled,
         &:not(:disabled):not(.disabled).active,
         &:not(:disabled):not(.disabled):active {
-            background-color: #593222ad;
-            border-color: #593222ad;
+            background-color: $tableColor2;
+            border-color: $tableColor2;
             box-shadow: none !important;
         }
     }
@@ -70,7 +73,7 @@
         margin: auto;
         width: 100%;
         max-width: 350px;
-        max-height: 438px;
+        max-height: 385px;
         z-index: 1000;
         background: #fff;
         transition: all .3s linear;
@@ -122,6 +125,7 @@
             left: -30px;
             width: 30px;
             height: 30px;
+            padding: 7px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -308,9 +312,6 @@
 
 
     .styled-number {
-        .fas {
-            margin-left: 6px;
-        }
 
         span {
             color: #fff;
@@ -383,7 +384,7 @@
 
     .the-table {
         width: 100%;
-        background: #593222;
+        background: $tableColor1;
         padding: 25px 15px;
         border-radius: .25rem;
         position: relative;
