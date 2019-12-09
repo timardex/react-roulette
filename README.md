@@ -1,4 +1,4 @@
-This is a Roulette game made with React and Redux.
+This is a Roulette presentation made with React and Redux.
 
 In the project directory, please run:
 
