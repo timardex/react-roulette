@@ -19,7 +19,6 @@ const initialState = {
     disabled_btn: '',
     disabled_spin: '',
     wheel_img_name: 'nogame',
-    dolly_img: require('../assets/images/dolly.png'),
     spin_btn: true,
     last_numbers: [],
     number_checked: [],
@@ -404,6 +403,7 @@ const initialState = {
     list_odd_numbers: [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35],
     list_numbers_1_to_18: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
     list_numbers_19_to_36: [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36],
+    wheel_numbers: [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26]
 }
 
 export default initialState;

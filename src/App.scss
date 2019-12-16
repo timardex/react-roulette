@@ -252,26 +252,6 @@ $tableColor2: #3f3f3f;
         }
     }
 
-
-    .r-ball {
-        max-width: 17%;
-        position: absolute;
-        top: 21%;
-        left: 10%;
-
-        &.rotate-left {
-            animation: 3s ballRotateLeft infinite linear;
-            -moz-animation: 3s ballRotateLeft infinite linear;
-            -webkit-animation: 3s ballRotateLeft infinite linear;
-        }
-
-        &.rotate-right {
-            animation: 3s ballRotateRight infinite linear;
-            -moz-animation: 3s ballRotateRight infinite linear;
-            -webkit-animation: 3s ballRotateRight infinite linear;
-        }
-    }
-
     .win-lose {
         text-align: center;
 
@@ -397,54 +377,6 @@ $tableColor2: #3f3f3f;
 
         @media(max-width: 768px) {
             display: block;
-        }
-
-        .wheel-stand {
-            position: relative;
-            max-width: 200px;
-
-            @media(max-width: 768px) {
-                margin: 0 auto 1rem;
-
-            }
-
-            .r-wheel {
-                max-width: 73%;
-                position: absolute;
-                top: 14%;
-                left: 14%;
-
-                &.rotate-right {
-                    animation: 8s wheelRotateRight infinite linear;
-                    -moz-animation: 8s wheelRotateRight infinite linear;
-                    -webkit-animation: 8s wheelRotateRight infinite linear;
-                }
-
-                &.rotate-left {
-                    animation: 8s wheelRotateLeft infinite linear;
-                    -moz-animation: 8s wheelRotateLeft infinite linear;
-                    -webkit-animation: 8s wheelRotateLeft infinite linear;
-                }
-            }
-
-            .r-ball {
-                max-width: 60%;
-                position: absolute;
-                top: 20%;
-                left: 20%;
-
-                &.rotate-left {
-                    animation: 3s ballRotateLeft infinite linear;
-                    -moz-animation: 3s ballRotateLeft infinite linear;
-                    -webkit-animation: 3s ballRotateLeft infinite linear;
-                }
-
-                &.rotate-right {
-                    animation: 3s ballRotateRight infinite linear;
-                    -moz-animation: 3s ballRotateRight infinite linear;
-                    -webkit-animation: 3s ballRotateRight infinite linear;
-                }
-            }
         }
 
         .the-table-inner {
@@ -825,5 +757,83 @@ $tableColor2: #3f3f3f;
 
     100% {
         transform: rotate(360deg);
+    }
+}
+
+.wheel-stand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 200px;
+
+    @media(max-width: 768px) {
+        margin: 0 auto 1rem;
+    }
+
+    .r-wheel {
+        max-width: 73%;
+        position: absolute;
+        top: 14%;
+        left: 14%;
+
+        &.rotate-right {
+            animation: 8s wheelRotateRight infinite linear;
+            -moz-animation: 8s wheelRotateRight infinite linear;
+            -webkit-animation: 8s wheelRotateRight infinite linear;
+        }
+
+        &.rotate-left {
+            animation: 8s wheelRotateLeft infinite linear;
+            -moz-animation: 8s wheelRotateLeft infinite linear;
+            -webkit-animation: 8s wheelRotateLeft infinite linear;
+        }
+    }
+
+    .r-ball {
+        position: absolute;
+        width: 125px;
+        height: 135px;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            background: #fff;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+        }
+
+        &.rotate-left {
+            animation: 3s ballRotateLeft infinite linear;
+            -moz-animation: 3s ballRotateLeft infinite linear;
+            -webkit-animation: 3s ballRotateLeft infinite linear;
+        }
+
+        &.rotate-right {
+            animation: 3s ballRotateRight infinite linear;
+            -moz-animation: 3s ballRotateRight infinite linear;
+            -webkit-animation: 3s ballRotateRight infinite linear;
+        }
+    }
+
+    .wheel-box {
+        width: 200px;
+        height: 200px;
+        border: 10px solid #000;
+        border-radius: 50%;
+        background: #593222;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .ball-track {
+            width: 180px;
+            height: 180px;
+            background: transparent;
+            border-radius: 50%;
+            border: 5px solid #673d2c;
+        }
     }
 }

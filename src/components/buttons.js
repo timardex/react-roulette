@@ -44,12 +44,12 @@ function mapDispatchToProps(dispatch) {
             setTimeout(() => {
                 const action = {type: 'NO_MORE_BETS'};
                 dispatch(action)
-            }, 100)
+            }, 10000)
 
             setTimeout(() => {
                 const action = {type: 'GAME_RESULT'};
                 dispatch(action)
-            }, 195)
+            }, 19500)
         },
         
     }

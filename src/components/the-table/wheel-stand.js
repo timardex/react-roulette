@@ -5,9 +5,11 @@ const WheelStand = props => {
 
     return (
         <div className="wheel-stand">
-            <img src={require('../../assets/images/wheel-stand.png')} className="img-fluid" alt="Wheel stand"/>
+            <div className="wheel-box">
+                <div className="ball-track"></div>
+            </div>
             <img src={require(`../../assets/images/wheel/w${props.wheel_img_name}.png`)} className={"img-fluid r-wheel " + props.rotate_wheel} alt="Roulette Wheel"/>
-            <img src={require('../../assets/images/ball.png')} className={"img-fluid r-ball " + props.rotate_ball} alt="Roulette Ball"/>
+            <div className={"r-ball " + props.rotate_ball}></div>
         </div>
     )
 }
@@ -16,7 +18,8 @@ function mapStateToProps(state) {
     return {
         wheel_img_name: state.wheel_img_name,
         rotate_wheel: state.rotate_wheel,
-        rotate_ball: state.rotate_ball
+        rotate_ball: state.rotate_ball,
+        wheel_numbers: state.wheel_numbers
     }
 }
 
