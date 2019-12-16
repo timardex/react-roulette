@@ -19,7 +19,6 @@ const initialState = {
     disabled_btn: '',
     disabled_spin: '',
     wheel_img_name: 'nogame',
-    chip_img: require('../assets/images/chip.png'),
     dolly_img: require('../assets/images/dolly.png'),
     spin_btn: true,
     last_numbers: [],

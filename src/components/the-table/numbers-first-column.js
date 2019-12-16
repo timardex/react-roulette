@@ -10,8 +10,8 @@ const NumbersFirstColumn = props => {
                         <label className={"form-check-label " + props.disabled_btn} htmlFor={value.id} title={value.numbers}>
                             <input className="form-check-input" type="checkbox" id={value.id} value={value.id} onChange={(e) => {props.getBet(value); props.chip_effect.play()}}/>
                             <span>{value.name}</span>
-                            {value.checked && <span className="chip" style={{backgroundImage: 'url(' + props.chip_img + ')'}}></span>}
-                            <span className="dolly" style={{backgroundImage: 'url(' + props.dolly_img + ')'}}></span>
+                            {value.checked && <span className="chip"></span>}
+                            <span className="dolly"></span>
                         </label>
                     </div>
                 )
@@ -23,8 +23,6 @@ const NumbersFirstColumn = props => {
 function mapStateToProps(state) {
     return {
         disabled_btn: state.disabled_btn,
-        chip_img: state.chip_img,
-        dolly_img: state.dolly_img,
         chip_effect: state.chip_effect,
         number_first_column: state.number_first_column,
     }

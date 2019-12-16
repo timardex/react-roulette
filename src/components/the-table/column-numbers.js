@@ -10,7 +10,7 @@ const ColumnNumbers = props => {
                         <label className={"form-check-label " + props.disabled_btn} htmlFor={value.id} title={value.numbers}>
                             <input className="form-check-input" type="checkbox" id={value.id} value={value.id} onChange={(e) => {props.getBet(value); props.chip_effect.play()}}/>
                             <span>{value.id}</span>
-                            {value.checked && <span className="chip" style={{backgroundImage: 'url(' + props.chip_img + ')'}}></span>}
+                            {value.checked && <span className="chip"></span>}
                         </label>
                     </div>
                 )
@@ -21,7 +21,7 @@ const ColumnNumbers = props => {
                         <label className={"form-check-label " + props.disabled_btn} htmlFor={value.id} title={value.numbers}>
                             <input className="form-check-input" type="checkbox" id={value.id} value={value.id} onChange={(e) => {props.getBet(value); props.chip_effect.play()}}/>
                             <span>{value.id}</span>
-                            {value.checked && <span className="chip" style={{backgroundImage: 'url(' + props.chip_img + ')'}}></span>}
+                            {value.checked && <span className="chip"></span>}
                         </label>
                     </div>
                 )
@@ -32,7 +32,7 @@ const ColumnNumbers = props => {
                         <label className={"form-check-label " + props.disabled_btn} htmlFor={value.id} title={value.numbers}>
                             <input className="form-check-input" type="checkbox" id={value.id} value={value.id} onChange={(e) => {props.getBet(value); props.chip_effect.play()}}/>
                             <span>{value.id}</span>
-                            {value.checked && <span className="chip" style={{backgroundImage: 'url(' + props.chip_img + ')'}}></span>}
+                            {value.checked && <span className="chip"></span>}
                         </label>
                     </div>
                 )
@@ -44,7 +44,6 @@ const ColumnNumbers = props => {
 function mapStateToProps(state) {
     return {
         disabled_btn: state.disabled_btn,
-        chip_img: state.chip_img,
         chip_effect: state.chip_effect,
         column1: state.column1_numbers,
         column2: state.column2_numbers,

@@ -534,20 +534,6 @@ $tableColor2: #3f3f3f;
                 border-right: 1px solid #000;
                 color: #fff;
                 font-weight: 700;
-
-                span.chip {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    margin: auto;
-                    width: 17px;
-                    height: 17px;
-                    background-size: contain !important;
-                    background-position: center center !important;
-                    background-repeat: no-repeat !important;
-                }
             }
 
             &:last-of-type label {
@@ -559,6 +545,71 @@ $tableColor2: #3f3f3f;
                 opacity: 0;
                 visibility: hidden;
             }
+        }
+    }
+
+    .chip,
+    .dolly {
+        position: absolute !important;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+
+    .chip {
+        width: 17px;
+        height: 17px;
+        background-color: #f11e25;
+        border-radius: 50%;
+        border: 2px solid #ffc107;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:before {
+            content: '';
+            width: 70%;
+            height: 70%;
+            border-radius: 50%;
+            background: #ffc107;
+        }
+
+        &:after {
+            content: '';
+            width: 40%;
+            height: 40%;
+            border-radius: 50%;
+            background: #f11e25;
+            position: absolute;
+        }
+
+        @media(max-width: 992px) {
+            width: 15px;
+            height: 15px;
+        }
+    }
+
+    .dolly {
+        top: -15px;
+        width: 10px !important;
+        height: 20px !important;
+        display: none !important;
+        background: #fff;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            border-radius: 50%;
         }
     }
 
@@ -604,7 +655,7 @@ $tableColor2: #3f3f3f;
                 visibility: hidden;
 
                 &.winner-number ~ .dolly {
-                    display: block;
+                    display: block !important;
                 }
             }
 
@@ -622,37 +673,6 @@ $tableColor2: #3f3f3f;
                     width: 14px;
                     height: 14px;
                     font-size: 1rem;
-                }
-
-                &.chip,
-                &.dolly {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    margin: auto;
-                    background-size: contain !important;
-                    background-position: center center !important;
-                    background-repeat: no-repeat !important;
-                }
-
-                &.chip {
-                    width: 17px;
-                    height: 17px;
-
-                    @media(max-width: 992px) {
-                        width: 15px;
-                        height: 15px;
-                    }
-                }
-
-                &.dolly {
-                    top: -20px;
-                    width: 15px;
-                    height: 29px;
-                    display: none;
-                    //background: url(../assets/roulette-game/images/dolly.png) center center no-repeat;
                 }
             }
         }
