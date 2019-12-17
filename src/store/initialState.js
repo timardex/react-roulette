@@ -18,7 +18,6 @@ const initialState = {
     winning_with: [],
     disabled_btn: '',
     disabled_spin: '',
-    wheel_img_name: 'nogame',
     spin_btn: true,
     last_numbers: [],
     number_checked: [],

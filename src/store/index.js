@@ -150,7 +150,6 @@ const reducer = (state = initialState, action) => {
                     text_low_high: _text_low_high,
                     text_column: _text_column,
                     text_racetrack: _text_racetrack,
-                    wheel_img_name: _output_number,
                     outside_bets_names: _update_outsidebet_names,
                     number_checked: state.number_checked.filter(item => item === _output_number), //keep just winning number
             }
@@ -165,10 +164,9 @@ const reducer = (state = initialState, action) => {
                     rotate_ball: state.spin_btn ? 'rotate-left show' : 'rotate-right show',
                     button_text: 'Place your bets please!',
                     disabled_spin: 'disabled',
-                    wheel_img_name: 'nogame',
                     output_number: null,
                     show_timer: true,
-                    winning_with: []
+                    winning_with: [],
             }
         case 'NO_MORE_BETS': 
             return {

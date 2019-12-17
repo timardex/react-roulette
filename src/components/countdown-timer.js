@@ -19,6 +19,11 @@ class CountdownTimer extends Component {
             this.setState({seconds: this.state.seconds - 1})
         }
     }
+
+    componentWillUnmount() {
+        clearInterval(this.timer);
+    }
+
     render(){
         return (
             <span>{this.state.seconds}</span>
