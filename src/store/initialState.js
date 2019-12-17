@@ -31,6 +31,7 @@ const initialState = {
             name: '0',
             checked: false,
             numbers: 0,
+            color: 'green'
         },
     ],
 
@@ -40,72 +41,84 @@ const initialState = {
             name: '1',
             checked: false,
             numbers: 1,
+            color: 'red'
         },
         {
             id: '4',
             name: '4',
             checked: false,
             numbers: 4,
+            color: 'black'
         },
         {
             id: '7',
             name: '7',
             checked: false,
             numbers: 7,
+            color: 'red'
         },
         {
             id: '10',
             name: '10',
             checked: false,
             numbers: 10,
+            color: 'black'
         },
         {
             id: '13',
             name: '13',
             checked: false,
             numbers: 13,
+            color: 'black'
         },
         {
             id: '16',
             name: '16',
             checked: false,
             numbers: 16,
+            color: 'red'
         },
         {
             id: '19',
             name: '19',
             checked: false,
             numbers: 19,
+            color: 'red'
         },
         {
             id: '22',
             name: '22',
             checked: false,
             numbers: 22,
+            color: 'black'
         },
         {
             id: '25',
             name: '25',
             checked: false,
             numbers: 25,
+            color: 'red'
         },
         {
             id: '28',
             name: '28',
             checked: false,
             numbers: 28,
+            color: 'black'
         },
         {
             id: '31',
             name: '31',
             checked: false,
             numbers: 31,
+            color: 'black'
         },
         {
             id: '34',
             name: '34',
             checked: false,
             numbers: 34,
+            color: 'red'
         },
     ],
 
@@ -115,72 +128,84 @@ const initialState = {
             name: '2',
             checked: false,
             numbers: 2,
+            color: 'black'
         },
         {
             id: '5',
             name: '5',
             checked: false,
             numbers: 5,
+            color: 'red'
         },
         {
             id: '8',
             name: '8',
             checked: false,
             numbers: 8,
+            color: 'black'
         },
         {
             id: '11',
             name: '11',
             checked: false,
             numbers: 11,
+            color: 'black'
         },
         {
             id: '14',
             name: '14',
             checked: false,
             numbers: 14,
+            color: 'red'
         },
         {
             id: '17',
             name: '17',
             checked: false,
             numbers: 17,
+            color: 'black'
         },
         {
             id: '20',
             name: '20',
             checked: false,
             numbers: 20,
+            color: 'black'
         },
         {
             id: '23',
             name: '23',
             checked: false,
             numbers: 23,
+            color: 'red'
         },
         {
             id: '26',
             name: '26',
             checked: false,
             numbers: 26,
+            color: 'black'
         },
         {
             id: '29',
             name: '29',
             checked: false,
             numbers: 29,
+            color: 'black'
         },
         {
             id: '32',
             name: '32',
             checked: false,
             numbers: 32,
+            color: 'red'
         },
         {
             id: '35',
             name: '35',
             checked: false,
             numbers: 35,
+            color: 'black'
         },
     ],
 
@@ -190,72 +215,84 @@ const initialState = {
             name: '3',
             checked: false,
             numbers: 3,
+            color: 'red'
         },
         {
             id: '6',
             name: '6',
             checked: false,
             numbers: 6,
+            color: 'black'
         },
         {
             id: '9',
             name: '9',
             checked: false,
             numbers: 9,
+            color: 'red'
         },
         {
             id: '12',
             name: '12',
             checked: false,
             numbers: 12,
+            color: 'red'
         },
         {
             id: '15',
             name: '15',
             checked: false,
             numbers: 15,
+            color: 'black'
         },
         {
             id: '18',
             name: '18',
             checked: false,
             numbers: 18,
+            color: 'red'
         },
         {
             id: '21',
             name: '21',
             checked: false,
             numbers: 21,
+            color: 'red'
         },
         {
             id: '24',
             name: '24',
             checked: false,
             numbers: 24,
+            color: 'black'
         },
         {
             id: '27',
             name: '27',
             checked: false,
             numbers: 27,
+            color: 'red'
         },
         {
             id: '30',
             name: '30',
             checked: false,
             numbers: 30,
+            color: 'red'
         },
         {
             id: '33',
             name: '33',
             checked: false,
             numbers: 33,
+            color: 'black'
         },
         {
             id: '36',
             name: '36',
             checked: false,
             numbers: 36,
+            color: 'red'
         },
     ],
     column1_numbers: [
@@ -403,7 +440,6 @@ const initialState = {
     list_odd_numbers: [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35],
     list_numbers_1_to_18: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
     list_numbers_19_to_36: [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36],
-    wheel_numbers: [0,32,15,19,4,21,2,25,17,34,6,27,13,36,11,30,8,23,10,5,24,16,33,1,20,14,31,9,22,18,29,7,28,12,35,3,26]
 }
 
 export default initialState;

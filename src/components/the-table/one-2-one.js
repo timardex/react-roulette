@@ -9,7 +9,7 @@ const One2One = props => {
                     <div className="form-check form-check-inline col-sm-2" key={index} >
                         <label className={"form-check-label " + props.disabled_btn} htmlFor={value.id} title={value.numbers}>
                             <input className="form-check-input" type="checkbox" id={value.id} value={value.id} onChange={(e) => {props.getBet(value); props.chip_effect.play()}}/>
-                            <span>{value.name}</span>
+                            <span className="number-name">{value.name}</span>
                             {value.checked && <span className="chip"></span>}
                         </label>
                     </div>
@@ -20,7 +20,7 @@ const One2One = props => {
                     <div className="form-check form-check-inline col-sm-2" key={index} >
                         <label className={"form-check-label " + props.disabled_btn} htmlFor={value.id} title={value.numbers}>
                             <input className="form-check-input" type="checkbox" id={value.id} value={value.id} onChange={(e) => {props.getBet(value); props.chip_effect.play()}}/>
-                            <span>{value.name}</span>
+                            <span className="number-name">{value.name}</span>
                             {value.checked && <span className="chip"></span>}
                         </label>
                     </div>
@@ -31,7 +31,7 @@ const One2One = props => {
                     <div className="form-check form-check-inline col-sm-2" key={index} >
                         <label className={"form-check-label " + props.disabled_btn} htmlFor={value.id} title={value.numbers}>
                             <input className="form-check-input" type="checkbox" id={value.id} value={value.id} onChange={(e) => {props.getBet(value); props.chip_effect.play()}}/>
-                            <span>{value.name}</span>
+                            <span className="number-name">{value.name}</span>
                             {value.checked && <span className="chip"></span>}
                         </label>
                     </div>
@@ -42,7 +42,7 @@ const One2One = props => {
                     <div className="form-check form-check-inline col-sm-2" key={index} >
                         <label className={"form-check-label " + props.disabled_btn} htmlFor={value.id} title={value.numbers}>
                             <input className="form-check-input" type="checkbox" id={value.id} value={value.id} onChange={(e) => {props.getBet(value); props.chip_effect.play()}}/>
-                            <span>{value.name}</span>
+                            <span className="number-name">{value.name}</span>
                             {value.checked && <span className="chip"></span>}
                         </label>
                     </div>
@@ -53,7 +53,7 @@ const One2One = props => {
                     <div className="form-check form-check-inline col-sm-2" key={index} >
                         <label className={"form-check-label " + props.disabled_btn} htmlFor={value.id} title={value.numbers}>
                             <input className="form-check-input" type="checkbox" id={value.id} value={value.id} onChange={(e) => {props.getBet(value); props.chip_effect.play()}}/>
-                            <span>{value.name}</span>
+                            <span className="number-name">{value.name}</span>
                             {value.checked && <span className="chip"></span>}
                         </label>
                     </div>
@@ -64,7 +64,7 @@ const One2One = props => {
                     <div className="form-check form-check-inline col-sm-2" key={index} >
                         <label className={"form-check-label " + props.disabled_btn} htmlFor={value.id} title={value.numbers}>
                             <input className="form-check-input" type="checkbox" id={value.id} value={value.id} onChange={(e) => {props.getBet(value); props.chip_effect.play()}}/>
-                            <span>{value.name}</span>
+                            <span className="number-name">{value.name}</span>
                             {value.checked && <span className="chip"></span>}
                         </label>
                     </div>

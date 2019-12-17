@@ -25,10 +25,6 @@ const reducer = (state = initialState, action) => {
         return parseInt(value.filter(number => number === _output_number))
     }
 
-    const removeClass = (el, c) => {
-        if (el) el.classList.remove(c);
-    }  
-
     let _winning_with_outside = [];
     let _update_outsidebet_names = [];
     const winningWithOutsideBets = (outsideBets) => {
@@ -106,8 +102,8 @@ const reducer = (state = initialState, action) => {
                 (_output_number === _number_is_jeu0 && _output_number === _number_is_voison) || _output_number === 0 ? 'Voison du Zero and Jeu 0 section' :
                 _output_number === _number_is_voison ? 'Voison du Zero section' : 'NaN';
                 
-            let addDolly = document.getElementById(_output_number);
-            addDolly.className += ' winner-number';
+            let addWinner = document.querySelectorAll(`.number-${_output_number}`);
+            addWinner.forEach(el => el.classList.add('winner-number'))
 
             let _win_lose_with_number_bets = getGameResult(state.number_checked);
 
@@ -159,8 +155,8 @@ const reducer = (state = initialState, action) => {
                     number_checked: state.number_checked.filter(item => item === _output_number), //keep just winning number
             }
         case 'SPIN_BALL':
-            let removeDolly = document.querySelector('.form-check-input.winner-number')
-            removeClass(removeDolly, 'winner-number');
+            let removeWinner = document.querySelectorAll('.form-check-label, .number')
+            removeWinner.forEach(el => el.classList.remove('winner-number'))
             
             return {
                 ...state,

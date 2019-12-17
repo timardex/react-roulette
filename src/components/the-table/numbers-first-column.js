@@ -6,10 +6,10 @@ const NumbersFirstColumn = props => {
         <div className="first-column columns">
             {props.number_first_column.map((value, index) => {
                 return (
-                    <div className="form-check form-check-inline" key={index} >
-                        <label className={"form-check-label " + props.disabled_btn} htmlFor={value.id} title={value.numbers}>
+                    <div className={`form-check form-check-inline ${props.disabled_btn}`} key={index}>
+                        <label className={`form-check-label number-${value.name}`} htmlFor={value.id} title={value.numbers}>
                             <input className="form-check-input" type="checkbox" id={value.id} value={value.id} onChange={(e) => {props.getBet(value); props.chip_effect.play()}}/>
-                            <span>{value.name}</span>
+                            <span className="number-name" style={{color: value.color}}>{value.name}</span>
                             {value.checked && <span className="chip"></span>}
                             <span className="dolly"></span>
                         </label>
