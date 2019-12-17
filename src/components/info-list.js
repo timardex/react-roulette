@@ -58,7 +58,7 @@ const InfoList = props => {
 
     return (
         <div className={`info-list ${props.info_list ? 'active' : ''}`}>
-            <img src={require(`../assets/images/arrow-${props.info_list ? 'right' : 'left'}.png`)} alt="Open and Close arrow" className="close-this" onClick={(e) => props.closeList()}/>
+            <span className={`close-this chevron ${props.info_list ? 'right' : 'left'}`} onClick={(e) => props.closeList()}></span>
             {info_list}                        
         </div>
     )
