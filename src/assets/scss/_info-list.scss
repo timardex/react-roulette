@@ -9,9 +9,15 @@
     max-width: 350px;
     max-height: 385px;
     z-index: 1000;
-    background: $tableColor2;
     transition: all .3s linear;
-    box-shadow: 2px 5px 25px 3px rgba(0, 0, 0, 0.2);
+    
+
+    .the-list {
+        background: $tableColor1;
+        box-shadow: 2px 5px 25px 3px rgba(0, 0, 0, .5);
+        position: relative;
+        z-index: 2;
+    }
 
     @media(max-width: 768px) {
         font-size: .7rem;
@@ -64,7 +70,7 @@
             display: flex;
             align-items: center;
             padding: 0.5rem;
-            background: $tableColor1;
+            background: $tableColor2;
 
             &.red-or-black {
                 color: $color1 !important;
@@ -143,7 +149,9 @@ p {
     cursor: pointer;
     font-size: 1rem;
     z-index: 1;
-    background: $tableColor2;
+    background: $tableColor1;
+    box-shadow: 2px 5px 25px 3px rgba(0, 0, 0, .5);
+    z-index: 1;
 }
 
 .chevron {

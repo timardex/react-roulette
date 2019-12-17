@@ -22,6 +22,10 @@
         padding: 0;
         text-align: center;
 
+        &:hover {
+            background: $color2a;
+        }
+
         label {
             cursor: pointer;
             width: 100%;

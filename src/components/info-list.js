@@ -59,7 +59,9 @@ const InfoList = props => {
     return (
         <div className={`info-list ${props.info_list ? 'active' : ''}`}>
             <span className={`close-this chevron ${props.info_list ? 'right' : 'left'}`} onClick={(e) => props.closeList()}></span>
-            {info_list}                        
+            <div className="the-list">
+                {info_list}
+            </div>                        
         </div>
     )
 }
