@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 const Number0 = props => {
     return (
-        <div className="number-0 columns">
+        <div className="number-zero columns">
             {props.number_zero.map((value, index) => {
                 return (
                     <div className={`form-check form-check-inline ${props.disabled_btn}`} key={index}>
