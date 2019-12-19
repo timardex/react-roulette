@@ -1,78 +1,27 @@
 import initialState from './initialState';
+import {onlyUnique, removeNumbers, checkNumbers, getGameResult, winningWithOutsideBets, winningWithNumberBets} from './helpers.js';
 import {createStore} from 'redux';
 
 const reducer = (state = initialState, action) => {
 
-    const onlyUnique = (value, index, self) => {
-        return self.indexOf(value) === index;
-    }
-
-    const checkNumbers = (number) => {
-        return (number.map(value => value.id === action.element.id ?
-            // transform the one with a matching id
-            { ...value, checked: action.element.checked = !action.element.checked } : 
-            // otherwise return original value
-            value
-        ))
-    }
-
-    const removeNumbers = (number) => {
-        return number.map(value => value.checked ? {...value, checked: false} : value)
-    }
-
     let _output_number = Math.floor((Math.random() * 36) + 0);
-    const getGameResult = (value) => {
-        return parseInt(value.filter(number => number === _output_number))
-    }
-
     let _winning_with_outside = [];
     let _update_outsidebet_names = [];
-    const winningWithOutsideBets = (outsideBets) => {
-        let isChecked = outsideBets.map(value => value.checked === true);
-        let isName = outsideBets.map(value => value.name).toString();
-        let isNumber = outsideBets.map(value => value.numbers);
-        let _outside_bets = parseInt(state.outside_bets.filter(value => value === _output_number));
-        let _outsideBets = parseInt(isNumber[0].filter(value => value === _outside_bets));
-        
-        if(isChecked[0] && _outside_bets === _outsideBets) {
-            //update outsidebets with the wining name
-            let get_winning_name = state.outside_bets_names.filter(item => item === isName).toString();
-            _update_outsidebet_names.push(get_winning_name)
-
-            _winning_with_outside.push(isName)
-        } if(_outside_bets !== _outsideBets) { //if not a winner
-            outsideBets.map(value => value.checked = false);
-        }
-    }
-
-    const winningWithNumberBets = (element) => {
-        let isChecked = element.map(value => value.checked === true);
-        let isNumber = element.map(value => value.numbers);
-        
-        let _number_checked = parseInt(state.number_checked.filter(value => value === _output_number));
-        let _number_number_checked = parseInt(isNumber.filter(value => value === _number_checked));
-       
-        if(isChecked && _number_checked === _number_number_checked) {
-            element.map(value => value.numbers === _number_checked ? value.checked : value.checked = false);
-        } if(_number_checked !== _number_number_checked) { //if not a winner
-            element.map(value => value.checked = false);
-        }
-    }
 
     switch(action.type) {
         case 'GAME_RESULT':
-            let _number_is_red = getGameResult(state.list_red_numbers);
-            let _number_is_black = getGameResult(state.list_black_numbers);
-            let _number_is_dozen1 = getGameResult(state.list_dozen_1_numbers);
-            let _number_is_dozen2 = getGameResult(state.list_dozen_2_numbers);
-            let _number_is_dozen3 = getGameResult(state.list_dozen_3_numbers);
-            let _number_is_1st_column = getGameResult(state.list_first_column_numbers);
-            let _number_is_2nd_column = getGameResult(state.list_second_column_numbers);
-            let _number_is_3rd_column = getGameResult(state.list_third_column_numbers);
-            let _number_is_cylinder = getGameResult(state.list_cylinder_numbers);
-            let _number_is_orphelin = getGameResult(state.list_orphelin_numbers);
-            let _number_is_voison = getGameResult(state.list_voison_numbers);
-            let _number_is_jeu0 = getGameResult(state.list_jeu0_numbers);
+            let _number_is_red = getGameResult(state.list_red_numbers, _output_number);
+            let _number_is_black = getGameResult(state.list_black_numbers, _output_number);
+            let _number_is_dozen1 = getGameResult(state.list_dozen_1_numbers, _output_number);
+            let _number_is_dozen2 = getGameResult(state.list_dozen_2_numbers, _output_number);
+            let _number_is_dozen3 = getGameResult(state.list_dozen_3_numbers, _output_number);
+            let _number_is_1st_column = getGameResult(state.list_first_column_numbers, _output_number);
+            let _number_is_2nd_column = getGameResult(state.list_second_column_numbers, _output_number);
+            let _number_is_3rd_column = getGameResult(state.list_third_column_numbers, _output_number);
+            let _number_is_cylinder = getGameResult(state.list_cylinder_numbers, _output_number);
+            let _number_is_orphelin = getGameResult(state.list_orphelin_numbers, _output_number);
+            let _number_is_voison = getGameResult(state.list_voison_numbers, _output_number);
+            let _number_is_jeu0 = getGameResult(state.list_jeu0_numbers, _output_number);
 
             let _text_even_odd = 
                 (_output_number % 2 === 0 && _output_number !== 0) ? 'Even' : 
@@ -105,33 +54,33 @@ const reducer = (state = initialState, action) => {
             let addWinner = document.querySelectorAll(`.number-${_output_number}`);
             addWinner.forEach(el => el.classList.add('winner-number'))
 
-            let _win_lose_with_number_bets = getGameResult(state.number_checked);
+            let _win_lose_with_number_bets = getGameResult(state.number_checked, _output_number);
 
-            winningWithOutsideBets(state.low_numbers);
-            winningWithOutsideBets(state.even_numbers);
-            winningWithOutsideBets(state.red_numbers);
-            winningWithOutsideBets(state.black_numbers);
-            winningWithOutsideBets(state.odd_numbers);
-            winningWithOutsideBets(state.high_numbers);
-            winningWithOutsideBets(state.dozen1_numbers);
-            winningWithOutsideBets(state.dozen2_numbers);
-            winningWithOutsideBets(state.dozen3_numbers);
-            winningWithOutsideBets(state.cylinder_numbers);
-            winningWithOutsideBets(state.orphelin_numbers);
-            winningWithOutsideBets(state.voison_numbers);
-            winningWithOutsideBets(state.jeu0_numbers);
-            winningWithOutsideBets(state.column1_numbers);
-            winningWithOutsideBets(state.column2_numbers);
-            winningWithOutsideBets(state.column3_numbers);
+            winningWithOutsideBets(state.low_numbers, state.outside_bets, state.outside_bets_names, _update_outsidebet_names, _winning_with_outside, _output_number);
+            winningWithOutsideBets(state.even_numbers, state.outside_bets, state.outside_bets_names, _update_outsidebet_names, _winning_with_outside, _output_number);
+            winningWithOutsideBets(state.red_numbers, state.outside_bets, state.outside_bets_names, _update_outsidebet_names, _winning_with_outside, _output_number);
+            winningWithOutsideBets(state.black_numbers, state.outside_bets, state.outside_bets_names, _update_outsidebet_names, _winning_with_outside, _output_number);
+            winningWithOutsideBets(state.odd_numbers, state.outside_bets, state.outside_bets_names, _update_outsidebet_names, _winning_with_outside, _output_number);
+            winningWithOutsideBets(state.high_numbers, state.outside_bets, state.outside_bets_names, _update_outsidebet_names, _winning_with_outside, _output_number);
+            winningWithOutsideBets(state.dozen1_numbers, state.outside_bets, state.outside_bets_names, _update_outsidebet_names, _winning_with_outside, _output_number);
+            winningWithOutsideBets(state.dozen2_numbers, state.outside_bets, state.outside_bets_names, _update_outsidebet_names, _winning_with_outside, _output_number);
+            winningWithOutsideBets(state.dozen3_numbers, state.outside_bets, state.outside_bets_names, _update_outsidebet_names, _winning_with_outside, _output_number);
+            winningWithOutsideBets(state.cylinder_numbers, state.outside_bets, state.outside_bets_names, _update_outsidebet_names, _winning_with_outside, _output_number);
+            winningWithOutsideBets(state.orphelin_numbers, state.outside_bets, state.outside_bets_names, _update_outsidebet_names, _winning_with_outside, _output_number);
+            winningWithOutsideBets(state.voison_numbers, state.outside_bets, state.outside_bets_names, _update_outsidebet_names, _winning_with_outside, _output_number);
+            winningWithOutsideBets(state.jeu0_numbers, state.outside_bets, state.outside_bets_names, _update_outsidebet_names, _winning_with_outside, _output_number);
+            winningWithOutsideBets(state.column1_numbers, state.outside_bets, state.outside_bets_names, _update_outsidebet_names, _winning_with_outside, _output_number);
+            winningWithOutsideBets(state.column2_numbers, state.outside_bets, state.outside_bets_names, _update_outsidebet_names, _winning_with_outside, _output_number);
+            winningWithOutsideBets(state.column3_numbers, state.outside_bets, state.outside_bets_names, _update_outsidebet_names, _winning_with_outside, _output_number);
 
             let _winner_is_number = state.number_checked.includes(_output_number);
             let _winning_with_number = _winner_is_number ? state.winning_with.concat(_win_lose_with_number_bets) : [];
             let _winning_with = [..._winning_with_outside, ..._winning_with_number];
 
-            winningWithNumberBets(state.number_first_column);
-            winningWithNumberBets(state.number_second_column);
-            winningWithNumberBets(state.number_third_column);
-            winningWithNumberBets(state.number_zero);
+            winningWithNumberBets(state.number_first_column, state.number_checked, _output_number);
+            winningWithNumberBets(state.number_second_column, state.number_checked, _output_number);
+            winningWithNumberBets(state.number_third_column, state.number_checked, _output_number);
+            winningWithNumberBets(state.number_zero, state.number_checked, _output_number);
             
             return {
                 ...state,
@@ -179,22 +128,22 @@ const reducer = (state = initialState, action) => {
         case 'GET_OUTSIDE_BETS':
             return {
                 ...state,
-                    low_numbers: checkNumbers(state.low_numbers),
-                    even_numbers: checkNumbers(state.even_numbers),
-                    red_numbers: checkNumbers(state.red_numbers),
-                    black_numbers: checkNumbers(state.black_numbers),
-                    odd_numbers: checkNumbers(state.odd_numbers),
-                    high_numbers: checkNumbers(state.high_numbers),
-                    dozen1_numbers: checkNumbers(state.dozen1_numbers),
-                    dozen2_numbers: checkNumbers(state.dozen2_numbers),
-                    dozen3_numbers: checkNumbers(state.dozen3_numbers),
-                    cylinder_numbers: checkNumbers(state.cylinder_numbers),
-                    orphelin_numbers: checkNumbers(state.orphelin_numbers),
-                    voison_numbers: checkNumbers(state.voison_numbers),
-                    jeu0_numbers: checkNumbers(state.jeu0_numbers),
-                    column1_numbers: checkNumbers(state.column1_numbers),
-                    column2_numbers: checkNumbers(state.column2_numbers),
-                    column3_numbers: checkNumbers(state.column3_numbers),
+                    low_numbers: checkNumbers(state.low_numbers, action.element),
+                    even_numbers: checkNumbers(state.even_numbers, action.element),
+                    red_numbers: checkNumbers(state.red_numbers, action.element),
+                    black_numbers: checkNumbers(state.black_numbers, action.element),
+                    odd_numbers: checkNumbers(state.odd_numbers, action.element),
+                    high_numbers: checkNumbers(state.high_numbers, action.element),
+                    dozen1_numbers: checkNumbers(state.dozen1_numbers, action.element),
+                    dozen2_numbers: checkNumbers(state.dozen2_numbers, action.element),
+                    dozen3_numbers: checkNumbers(state.dozen3_numbers, action.element),
+                    cylinder_numbers: checkNumbers(state.cylinder_numbers, action.element),
+                    orphelin_numbers: checkNumbers(state.orphelin_numbers, action.element),
+                    voison_numbers: checkNumbers(state.voison_numbers, action.element),
+                    jeu0_numbers: checkNumbers(state.jeu0_numbers, action.element),
+                    column1_numbers: checkNumbers(state.column1_numbers, action.element),
+                    column2_numbers: checkNumbers(state.column2_numbers, action.element),
+                    column3_numbers: checkNumbers(state.column3_numbers, action.element),
                     outside_bets: 
                         action.element.checked ? 
                             state.outside_bets.concat(action.element.numbers).filter(onlyUnique)
@@ -210,10 +159,10 @@ const reducer = (state = initialState, action) => {
         case 'GET_NUMBER_BETS':
             return {
                 ...state,
-                    number_zero: checkNumbers(state.number_zero),
-                    number_first_column: checkNumbers(state.number_first_column),
-                    number_second_column: checkNumbers(state.number_second_column),
-                    number_third_column: checkNumbers(state.number_third_column),
+                    number_zero: checkNumbers(state.number_zero, action.element),
+                    number_first_column: checkNumbers(state.number_first_column, action.element),
+                    number_second_column: checkNumbers(state.number_second_column, action.element),
+                    number_third_column: checkNumbers(state.number_third_column, action.element),
                     number_checked: 
                         action.element.checked ?
                             state.number_checked.concat(action.element.numbers)

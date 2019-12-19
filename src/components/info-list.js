@@ -71,7 +71,6 @@ function mapStateToProps(state) {
         info_list: state.info_list,
         output_number: state.output_number,
         last_numbers: state.last_numbers,
-        win_lose: state.win_lose,
         winning_with: state.winning_with,
         text_even_odd: state.text_even_odd,
         text_number_color: state.text_number_color,
