@@ -4,7 +4,7 @@ import {createStore} from 'redux';
 
 const reducer = (state = initialState, action) => {
 
-    let _output_number = Math.floor((Math.random() * 5) + 0);
+    let _output_number = Math.floor((Math.random() * 36) + 0);
     let _winning_with_outside = [];
     let _update_outsidebet_names = [];
 
