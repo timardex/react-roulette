@@ -1,0 +1,32 @@
+.current-chip-container {
+  width: 100%;
+  max-width: 768px;
+  margin: auto;
+  text-align: center;
+  .chip-amount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    p {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &.chip-won {
+        position: absolute;
+        top: 0; right: 0;
+      }
+      span {
+          color: red;
+          font-size: 2rem;
+          line-height: 1rem;
+          margin: 0 1rem;
+      }
+    }
+  }
+  .reset-chips {
+    .btn {
+      margin: 0 0 1rem 0;
+    }
+  }
+}

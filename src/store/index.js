@@ -4,7 +4,7 @@ import {createStore} from 'redux';
 
 const reducer = (state = initialState, action) => {
 
-    let _output_number = Math.floor((Math.random() * 36) + 0);
+    let _output_number = Math.floor((Math.random() * 5) + 0);
     let _winning_with_outside = [];
     let _update_outsidebet_names = [];
 
@@ -81,7 +81,17 @@ const reducer = (state = initialState, action) => {
             winningWithNumberBets(state.number_second_column, state.number_checked, _output_number);
             winningWithNumberBets(state.number_third_column, state.number_checked, _output_number);
             winningWithNumberBets(state.number_zero, state.number_checked, _output_number);
-            
+
+            let _number_checked = state.number_checked.filter(item => item === _output_number) //keep just winning number
+
+            let _current_chip = _number_checked.length > 0 && !_update_outsidebet_names.length > 0 ? state.current_chip+35 : 
+            _update_outsidebet_names.length > 0 && !_number_checked.length > 0 ? state.current_chip+(_update_outsidebet_names.length*10) :
+            _number_checked.length > 0 && _update_outsidebet_names.length > 0 ? (state.current_chip+35)+(_update_outsidebet_names.length*10) : state.current_chip;
+
+            let _chip_ammount_won = _number_checked.length > 0 && !_update_outsidebet_names.length > 0 ? 35 : 
+            _update_outsidebet_names.length > 0 && !_number_checked.length > 0 ? _update_outsidebet_names.length*10 :
+            _number_checked.length > 0 && _update_outsidebet_names.length > 0 ? (state.outside_bets_names.length*10)+35 : null;
+
             return {
                 ...state,
                     output_number: _output_number,
@@ -100,7 +110,9 @@ const reducer = (state = initialState, action) => {
                     text_column: _text_column,
                     text_racetrack: _text_racetrack,
                     outside_bets_names: _update_outsidebet_names,
-                    number_checked: state.number_checked.filter(item => item === _output_number), //keep just winning number
+                    number_checked: _number_checked,
+                    current_chip: _current_chip,
+                    chip_ammount_won: _chip_ammount_won
             }
         case 'SPIN_BALL':
             let removeWinner = document.querySelectorAll('.form-check-label, .number')
@@ -153,7 +165,8 @@ const reducer = (state = initialState, action) => {
                         action.element.checked ?
                             state.outside_bets_names.concat(action.element.name)
                         :
-                            state.outside_bets_names.filter(item => !action.element.name.includes(item))
+                            state.outside_bets_names.filter(item => !action.element.name.includes(item)),
+                    current_chip: action.element.checked ? state.current_chip = state.current_chip - 1 : state.current_chip = state.current_chip + 1
                     
             }
         case 'GET_NUMBER_BETS':
@@ -167,7 +180,8 @@ const reducer = (state = initialState, action) => {
                         action.element.checked ?
                             state.number_checked.concat(action.element.numbers)
                         :
-                            state.number_checked.filter(item => item !== action.element.numbers)
+                            state.number_checked.filter(item => item !== action.element.numbers),
+                    current_chip: action.element.checked ? state.current_chip = state.current_chip - 1 : state.current_chip = state.current_chip + 1
             }
         case 'REMOVE_BETS':
             return {
@@ -195,12 +209,19 @@ const reducer = (state = initialState, action) => {
                     outside_bets: [],
                     outside_bets_names: [],
                     number_checked: [],
-                    remove_bet_btn: false
+                    remove_bet_btn: false,
+                    current_chip: state.current_chip + state.number_checked.length + state.outside_bets_names.length,
+                    chip_ammount_won: null
             }
         case 'CLOSE_LIST':
             return {
                 ...state,
                     info_list: !state.info_list
+            }
+        case 'RESET_CHIPS':
+            return {
+                ...state,
+                current_chip: 50
             }
         default:
             return state;
