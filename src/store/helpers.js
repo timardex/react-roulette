@@ -50,3 +50,11 @@ export const winningWithNumberBets = (element, stateNumberChecked, outputNum) =>
         element.map(value => value.checked = false);
     }
 }
+
+export const previouseNumberBets = (number_checked, column_number) => {
+    return column_number.map(value => number_checked.includes(value.numbers) ? {...value, checked: true} : value)
+}
+
+export const previouseOutsideBets = (number_checked, column_number) => {
+    return column_number.map(value => number_checked.includes(value.name) ? {...value, checked: true} : value)
+}

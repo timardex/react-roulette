@@ -7,11 +7,11 @@ const Buttons = props => {
     return(
         <div className="text-center max-width btn-box">
             {(props.number_checked.length > 0 || props.outside_bets_names.length > 0) &&  <button onClick={(e) => props.removeBets()} className={`btn btn-primary ${props.disabled_btn}`}>{props.remove_bet_text}</button>}
-            <button 
+            {props.current_chip > 0 && <button 
                 onClick={(e) => {props.spinBall(); props.ball_effect.play();}} 
                 className={`btn btn-primary ${props.disabled_spin}`}>
                 {props.button_text} {props.show_timer ? <CountdownTimer /> : ''}
-            </button>
+            </button>}
         </div>
     )
 }
@@ -28,6 +28,7 @@ function mapStateToProps(state) {
         outside_bets_names: state.outside_bets_names,
         ball_effect: state.ball_effect,
         show_timer: state.show_timer,
+        current_chip: state.current_chip
     }
 }
 
@@ -49,7 +50,7 @@ function mapDispatchToProps(dispatch) {
             setTimeout(() => {
                 const action = {type: 'GAME_RESULT'};
                 dispatch(action)
-            }, 19500)
+            }, 13000)
         },
         
     }
