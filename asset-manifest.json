@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/react-roulette/static/css/main.1c759a13.chunk.css",
+    "main.js": "/react-roulette/static/js/main.0d20ed52.chunk.js",
+    "main.js.map": "/react-roulette/static/js/main.0d20ed52.chunk.js.map",
+    "runtime-main.js": "/react-roulette/static/js/runtime-main.0b2dd44a.js",
+    "runtime-main.js.map": "/react-roulette/static/js/runtime-main.0b2dd44a.js.map",
+    "static/css/2.f93178fb.chunk.css": "/react-roulette/static/css/2.f93178fb.chunk.css",
+    "static/js/2.f52d3df0.chunk.js": "/react-roulette/static/js/2.f52d3df0.chunk.js",
+    "static/js/2.f52d3df0.chunk.js.map": "/react-roulette/static/js/2.f52d3df0.chunk.js.map",
+    "index.html": "/react-roulette/index.html",
+    "precache-manifest.9a086908e88a75d57273082beb5deefb.js": "/react-roulette/precache-manifest.9a086908e88a75d57273082beb5deefb.js",
+    "service-worker.js": "/react-roulette/service-worker.js",
+    "static/css/2.f93178fb.chunk.css.map": "/react-roulette/static/css/2.f93178fb.chunk.css.map",
+    "static/css/main.1c759a13.chunk.css.map": "/react-roulette/static/css/main.1c759a13.chunk.css.map",
+    "static/js/2.f52d3df0.chunk.js.LICENSE.txt": "/react-roulette/static/js/2.f52d3df0.chunk.js.LICENSE.txt",
+    "static/media/ball-effect.mp3": "/react-roulette/static/media/ball-effect.d2d1ec00.mp3",
+    "static/media/chip-effect.mp3": "/react-roulette/static/media/chip-effect.cd913118.mp3",
+    "static/media/rotate-device.gif": "/react-roulette/static/media/rotate-device.2d65264c.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0b2dd44a.js",
+    "static/css/2.f93178fb.chunk.css",
+    "static/js/2.f52d3df0.chunk.js",
+    "static/css/main.1c759a13.chunk.css",
+    "static/js/main.0d20ed52.chunk.js"
+  ]
+}
