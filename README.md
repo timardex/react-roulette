@@ -8,4 +8,4 @@ and
 
 Runs the app in the development mode.<br />
 
-To view the working demo please visit https://react-roulette-app.firebaseapp.com/
+To view the working demo please visit https://timardex.github.io/react-roulette/
