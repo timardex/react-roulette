@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import WheelStand from './wheel-stand';
+import WheelStand from './WheelStand';
 import NoMoreBets from './no-more-bets';
 import One2One from './one-2-one';
 import Dozens from './dozens';

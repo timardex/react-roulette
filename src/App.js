@@ -2,7 +2,6 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 import './assets/scss/_common.scss';
-import './assets/scss/_current-chip.scss';
 import './assets/scss/_the-table.scss';
 
 import store from './store';
@@ -12,11 +11,8 @@ import GameHeader from './components/game-header';
 import SelectedNumbers from './components/selected-numbers';
 import Buttons from './components/buttons';
 import InfoList from './components/info-list';
-
-import CurrentChip from './components/the-table/current-chip';
-import TheTable from './components/the-table';
-
-
+import CurrentChip from './components/CurrentChip';
+import TheTable from './components/TheTable';
 
 const App = () => {
   return (
