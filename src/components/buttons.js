@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import CountdownTimer from './countdown-timer';
+import CountdownTimer from './CountdownTimer';
 
 const Buttons = props => {
     return(
