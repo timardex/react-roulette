@@ -1,7 +1,9 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import './App.scss';
+import './assets/scss/_common.scss';
+import './assets/scss/_current-chip.scss';
+import './assets/scss/_the-table.scss';
 
 import store from './store';
 
